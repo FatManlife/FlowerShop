@@ -1,0 +1,162 @@
+//Auth 
+CREATE TABLE auth(
+    id SERIAL PRIMARY KEY,
+    phone VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+)
+
+//Customers
+CREATE TABLE customers(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    auth_id INT NOT NULL REFERENCES auth(id) ON DELETE CASCADE
+)
+
+//Products
+CREATE TABLE products(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    price REAl NOT NULL,
+    image TEXT  
+)
+
+//Carts
+CREATE TABLE carts(
+    id SERIAL PRIAMRY KEY,
+    customer_id INT NOT NULL REFERENCES customers(id) ON DELETE CASCADE
+)
+
+//Cart_items
+CREATE TABLE cart_items(
+    id SERIAL PRIAMRY KEY,
+    quantity INT NOT NULL,
+    cart_id INT NOT NULL REFERENCES carts(id) ON DELETE CASCADE
+    product_id INT NOT NULL REFERENCES products(id) ON DELETE CASCADE
+)
+
+//Subscriptions
+CREATE TABLE subscriptions(
+    id SERIAL PRIMARY KEY,
+    price NUMERIC NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    shipping_id INT REFERENCES shipping(id) ON DELETE CASCADE
+    img TEXT
+)
+
+//Customer_gift_cards
+CREATE TABLE Customer_gift_cards(
+    id SERIAL PRIAMRY KEY,
+    customer_id INT NOT NULL REFERENCES customers(id) ON DELETE CASCADE
+    gift_card_id INT NOT NULL REFERENCES gift_cards(id) ON DELETE CASCADE
+)
+
+//Gift_cards
+CREATE TABLE gift_cards(
+    id SERIAL PRIAMRY KEY,
+    name VARCHAR(255) NOT NULL,
+    discount REAL NOT NULL,
+    status BOOLEAN  NOT NULL
+)
+
+//Order_items
+CREATE TABLE order_items(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price NUMERIC NOT NULL,
+    quantity INT NOT NULL,
+    order_id INT NOT NULL REFERENCES orders(id) ON DELETE CASCADE 
+)
+
+//Orders
+CREATE TABLE orders(
+    id SERIAL PRIMARY KEY,
+    customer_id INT NOT NULL REFERENCES customers(id) ON DELETE CASCADE,
+    created_at DATE NOT NULL,
+    total_amount NUMERIC NOT NULL
+)
+
+//Payments
+CREATE TABLE payments(
+    id SERIAL PRIAMRY KEY,
+    name VARCHAR(255) NOT NULL,
+    price REAL NOT NULL
+)
+
+//Shipping
+CREATE TABLE shipping(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price REAL NOT NULL
+)
+
+//Subscription_plans
+CREATE TABLE subscriptions_plans(
+    id SERIAL PRIMARY KEY,
+    quantity INT NOT NULL,
+    customer_id INT NOT NULL REFERENCES customers(id) ON DELETE CASCADE,
+    subscription_id INT NOT NULL REFERENCES subscriptions(id) ON DELETE CASCADE
+)
+
+//Querys
+INSERT INTO payments (name, price) VALUES
+('Visa', 2.50),
+('Mastercard', 2.50),
+('PayPal', 3.00),
+('Apple Pay', 2.00),
+('Google Pay', 2.00);
+
+INSERT INTO shipping (name, price) VALUES
+('Standard Delivery (3-5 days)', 25.99),
+('Express Delivery (1-2 days)', 49.90),
+('Overnight Delivery', 79.50),
+('Pickup Point Delivery', 15.00),
+('Free Shipping (Orders over 50€)', 0);
+
+INSERT INTO gift_cards (name, discount, status)
+VALUES 
+    ('Holiday Special', 15.0, true),
+    ('New Year Bonus', 20.0, true),
+    ('Birthday Gift', 10.0, true),
+    ('Black Friday', 30.0, false),
+    ('Summer Sale', 25.0, true);
+
+INSERT INTO products (name, description, category, price, img)
+VALUES
+    ('Rose Elegance', 'A bouquet of 15 premium red roses wrapped in satin paper.', 'Flowers', 49.99, ''),
+    ('Spring Harmony', 'Mixed tulips in bright spring colors.', 'Flowers', 39.50, ''),
+    ('Sunflower Joy', 'A cheerful bouquet of 7 large sunflowers.', 'Flowers', 29.99, ''),
+    ('Lavender Dreams', 'Aromatic lavender stems arranged with soft greenery.', 'Flowers', 34.75, ''),
+    ('Pink Romance', 'Soft pink roses combined with baby’s breath.', 'Flowers', 44.90, ''),
+    ('Orchid Grace', 'Elegant white orchids arranged in a minimalistic style.', 'Flowers', 59.99, ''),
+    ('Autumn Glow', 'Chrysanthemums, roses, and orange accents for a warm look.', 'Flowers', 42.50, ''),
+    ('Peony Deluxe', 'A luxurious bouquet of vibrant peonies.', 'Flowers', 69.99, ''),
+    ('Wild Meadow Mix', 'A bouquet of wildflowers for a natural rustic look.', 'Flowers', 31.99, ''),
+    ('White Purity', 'White roses, lilies, and eucalyptus.', 'Flowers', 54.90, '');
+
+INSERT INTO subscriptions (price, name, descritpin, shipping_id, img)
+VALUES
+    (
+        45,
+        'Classic',
+        'Free Delivery. Best for a budget. Glass vase with first delivery. Save up to 25%.',
+        5,
+        ''
+    ),
+    (
+        65,
+        'Seasonal',
+        'Free Delivery. Best seasonal selections. Glass vase with first delivery. Luxury candle with your first delivery. Save up to 28%.',
+        5,
+        ''
+    ),
+    (
+        95,
+        'Luxe',
+        'Free Delivery. Premium arrangement. Premium vase with first delivery. Luxury candle with your first delivery. Save up to 30%.',
+        5,
+        ''
+    );
