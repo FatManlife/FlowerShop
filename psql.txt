@@ -160,3 +160,35 @@ VALUES
         5,
         ''
     );
+    
+INSERT INTO products (name, description, category, price, img) VALUES
+('Classic Ceramic Vase', 'Elegant white ceramic vase for home decor.', 'vase', 25.50, NULL),
+('Glass Flower Vase', 'Transparent glass vase perfect for fresh flowers.', 'vase', 18.00, NULL),
+('Vintage Porcelain Vase', 'Decorative porcelain vase with vintage design.', 'vase', 32.00, NULL),
+('Minimalist Cylinder Vase', 'Simple and stylish cylinder vase.', 'vase', 22.00, NULL),
+('Handmade Clay Vase', 'Artisan clay vase with rustic finish.', 'vase', 28.50, NULL),
+('Colorful Mosaic Vase', 'Vase with colorful mosaic pattern.', 'vase', 35.00, NULL),
+('Tall Floor Vase', 'Large floor vase for living room decoration.', 'vase', 55.00, NULL),
+('Small Bud Vase', 'Tiny vase perfect for single flowers.', 'vase', 12.00, NULL),
+('Geometric Vase', 'Modern vase with geometric shapes.', 'vase', 30.00, NULL),
+('Marble Effect Vase', 'Vase with elegant marble pattern.', 'vase', 40.00, NULL),
+('Oval Ceramic Vase', 'Oval-shaped ceramic vase in neutral tones.', 'vase', 27.00, NULL),
+('Hand-Painted Vase', 'Vase hand-painted with floral designs.', 'vase', 38.00, NULL),
+('Textured Glass Vase', 'Glass vase with textured surface.', 'vase', 24.50, NULL),
+('Blue Porcelain Vase', 'Classic blue porcelain vase.', 'vase', 33.00, NULL),
+('Modern Metal Vase', 'Sleek metal vase for contemporary homes.', 'vase', 29.00, NULL),
+('Rustic Wooden Vase', 'Decorative vase made of carved wood.', 'vase', 31.00, NULL),
+('Mini Succulent Vase', 'Small vase for succulents and cacti.', 'vase', 15.00, NULL),
+('Round Ceramic Vase', 'Round vase suitable for any interior.', 'vase', 26.50, NULL),
+('Pastel Color Vase', 'Soft pastel-colored vase for decoration.', 'vase', 23.00, NULL),
+('Handcrafted Stone Vase', 'Stone vase handcrafted by artisans.', 'vase', 45.00, NULL),('Lavender Scented Candle', 'Relaxing lavender aroma candle.', 'scented candles', 12.00, NULL),
+('Vanilla Bean Candle', 'Sweet vanilla scented candle.', 'scented candles', 10.50, NULL),
+('Citrus Burst Candle', 'Fresh citrus fragrance for energizing atmosphere.', 'scented candles', 11.00, NULL),
+('Rose Blossom Candle', 'Romantic rose-scented candle.', 'scented candles', 13.00, NULL),
+('Ocean Breeze Candle', 'Refreshing ocean breeze aroma.', 'scented candles', 12.50, NULL),
+('Cinnamon Spice Candle', 'Warm cinnamon and spice fragrance.', 'scented candles', 14.00, NULL),
+('Jasmine Night Candle', 'Soft jasmine fragrance for evenings.', 'scented candles', 13.50, NULL),
+('Eucalyptus Candle', 'Invigorating eucalyptus aroma.', 'scented candles', 11.50, NULL),
+('Pumpkin Pie Candle', 'Cozy pumpkin scent for fall.', 'scented candles', 12.00, NULL),
+('Sandalwood Candle', 'Earthy sandalwood aroma candle.', 'scented candles', 14.50, NULL);
+
