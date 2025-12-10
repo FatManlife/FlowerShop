@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean, Date
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean, Date, Time
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
@@ -63,14 +63,20 @@ class CustomerGiftCardOrm(Base):
     gift_card_id = Column(Integer, ForeignKey("gift_cards.id"), nullable=False)
     gift_card = relationship("GiftCardOrm",back_populates="customer_gift_cards")
     customer = relationship("CustomerOrm",back_populates="customer_gift_cards")
+    orders = relationship("OrderOrm", back_populates="customer_gift_card")
 
 class OrderOrm(Base):
     __tablename__ = "orders"
     id = Column(Integer, primary_key=True)
     customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
-    created_at = Column(Date, nullable=False)
+    payment_id = Column(Integer, ForeignKey("payments.id"), nullable=False)
+    shipping_id = Column(Integer, ForeignKey("shippings.id"), nullable=False)
+    gift_card_id = Column(Integer, ForeignKey("customer_gift_cards.id"), nullable=False)
     total_amount = Column(Float, nullable=False)
     customer = relationship("CustomerOrm", back_populates="orders")
+    payment = relationship("PaymentOrm", back_populates="orders")
+    shipping = relationship("ShippingOrm", back_populates="orders")
+    customer_gift_card = relationship("CustomerGiftCardOrm", back_populates="orders")
     order_items = relationship("OrderItemOrm", back_populates="order")
 
 class OrderItemOrm(Base):
@@ -85,14 +91,23 @@ class OrderItemOrm(Base):
 class PaymentOrm(Base):
     __tablename__ = "payments"
     id = Column(Integer, primary_key=True)
-    name = Column(String, nullable=False)
-    price = Column(Float, nullable=False)
+    card_number = Column(String, nullable=False)
+    card_number = Column(String, nullable=False)
+    month_year = Column(String, nullable=False)
+    cvv = Column(String)
+    orders = relationship("OrderOrm", back_populates="payment")
 
 class ShippingOrm(Base):
     __tablename__ = "shippings"
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     price = Column(Float, nullable=False)
+    phone = Column(String, nullable=False)
+    delivery_time = Column(Time, nullable=False)
+    delivery_date= Column(Date, nullable=False)
+    apartament_nr = Column(String, nullable=False)
+    street = Column(String, nullable=False)
+    orders = relationship("OrderOrm", back_populates="shipping")
 
 class SubscriptionOrm(Base):
     __tablename__ = "subscriptions"
