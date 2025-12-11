@@ -6,4 +6,4 @@ async def create(db: AsyncSession, auth_id: int):
     db.add(db_customer)
     await db.commit()
     await db.refresh(db_customer)
-    return db_customer
+    return db_customer.id

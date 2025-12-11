@@ -1,16 +1,18 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import text
+from sqlalchemy import select
 from models.auth import Auth, AuthIn
 from orms import AuthOrm
-
-async def get_all_Auth(db: AsyncSession):
-    result = await db.execute(text("SELECT * FROM auth"))
-    rows = result.fetchall()
-    return [Auth(**dict(row._mapping)) for row in rows]
+from core.config import pwd
 
 async def create(db: AsyncSession, auth: AuthIn):
-    db_auth = AuthOrm(phone=auth.phone, password=auth.password)
+    hashed = pwd.hash(auth.password)
+    db_auth = AuthOrm(phone=auth.phone, password=hashed)
     db.add(db_auth) 
     await db.commit()
     await db.refresh(db_auth)  
-    return db_auth
+    return db_auth.id
+
+async def get_auth_by_phone(db:AsyncSession, phone: str):
+    auth = await db.execute(select(AuthOrm).where(AuthOrm.phone == phone))
+    return auth.scalars().first()
+

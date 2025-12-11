@@ -10,3 +10,7 @@ router = APIRouter()
 @router.post("/signin")
 async def test_db(auth: AuthIn, db: AsyncSession = Depends(get_db)): 
     return  await service.create_auth(db, auth)
+
+@router.post("/login")
+async def test_db(auth: AuthIn, db: AsyncSession = Depends(get_db)):    
+    return await service.login(db,auth)
