@@ -50,3 +50,11 @@ async def delete_item(db:AsyncSession, product_id:int, cart_id: int):
 
     return {"message": "item delete successfully"}
 
+async def get_cart_items(db:AsyncSession, customer_id: int):
+    data = await db.execute(select(CartItemOrm)
+                            .join(CartOrm)
+                            .where(CartOrm.customer_id == customer_id))
+
+    cart = data.scalars().all()
+    
+    return cart

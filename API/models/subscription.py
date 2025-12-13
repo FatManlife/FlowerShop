@@ -11,3 +11,9 @@ class Subscription(BaseModel):
     model_config = {
         "from_attributes" : True
     }
+
+class SubscriptionPlan(BaseModel):
+    frequency: int
+    quantity: int
+    customer_id: int
+    subscription_id: int

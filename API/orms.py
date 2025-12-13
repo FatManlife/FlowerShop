@@ -13,8 +13,6 @@ class AuthOrm(Base):
 class CustomerOrm(Base):
     __tablename__ = "customers"
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=True)
-    email = Column(String, nullable=True)
     auth_id = Column(Integer, ForeignKey("auth.id")) 
     auth = relationship("AuthOrm", back_populates="customers")
     carts = relationship("CartOrm", back_populates="customer", cascade="all, delete-orphan")
@@ -69,6 +67,9 @@ class OrderOrm(Base):
     __tablename__ = "orders"
     id = Column(Integer, primary_key=True)
     customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
+    name = Column(String)
+    email = Column(String)
+    phone = Column(String, nullable=False)
     payment_id = Column(Integer, ForeignKey("payments.id"), nullable=False)
     shipping_id = Column(Integer, ForeignKey("shippings.id"), nullable=False)
     gift_card_id = Column(Integer, ForeignKey("customer_gift_cards.id"), nullable=False)
@@ -91,7 +92,6 @@ class OrderItemOrm(Base):
 class PaymentOrm(Base):
     __tablename__ = "payments"
     id = Column(Integer, primary_key=True)
-    card_number = Column(String, nullable=False)
     card_number = Column(String, nullable=False)
     month_year = Column(String, nullable=False)
     cvv = Column(String)
@@ -124,6 +124,6 @@ class SubscriptionPlanOrm(Base):
     frequency = Column(Integer, nullable=False)
     quantity = Column(Integer, nullable=False)
     customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
-    subscription_Id = Column(Integer, ForeignKey("subscriptions.id"), nullable=False)
+    subscription_id = Column(Integer, ForeignKey("subscriptions.id"), nullable=False)
     customer = relationship("CustomerOrm", back_populates="subscription_plans")
     subscription = relationship("SubscriptionOrm", back_populates="subscription_plans")
