@@ -18,17 +18,17 @@ import ReviewCarousel from "../components/home/ReviewCarousel"
 
 const Home = () => {
     return (
-        <div className="max-w-7xl mx-auto p-6 pr -mt-6 -mb-6">
+        <div className="max-w-7xl mx-auto border-l border-r">
             {/*Row1 */}
-            <div className="grid grid-cols-2 h-full">
+            <div className="grid grid-cols-2 h-full border-b">
                 {/* Left half */}
-                <div className="p-13 pt-16 pb-0 flex flex-col justify-between border border-t-0 border-gray-600">
+                <div className="p-13 pt-16 pb-0 flex flex-col justify-between ">
                     <div>
                         <h1 className="text-5xl font-semibold mb-6">Kyiv<br /> LuxeBouquets®</h1>
                         <p className="text-black font-light mb-6">
                             Discover Uniquely Crafted Bouquets and Gifts for Any Occasion: Spread Joy with Our Online Flower Delivery Service
                         </p>
-                        <hr className="border-black mt-10" />
+                        <hr className="mt-10" />
                     </div>
                     <div className="flex items-stretch w-full h-full mt-5 mb-25">
                         <div className="w-1/2 pr-5">
@@ -51,8 +51,8 @@ const Home = () => {
                 </div>
 
                 {/* Right half */}
-                <div className="grid grid-cols-2 grid-rows-2 h-full">
-                    <div className="bg-white p-6 flex flex-col items-center h-full border-l-0 border border-t-0 border-black relative">
+                <div className="grid grid-cols-2 grid-rows-2 h-full border-l">
+                    <div className="bg-white p-6 flex flex-col items-center h-full border-r border-b relative">
                         <h2 className="text-3xl font-semibold text-center absolute top-1/2 -translate-y-1/2 w-full">
                             Fresh Flowers
                         </h2>
@@ -60,13 +60,13 @@ const Home = () => {
                             Shop now →
                         </button>
                     </div>
-                    <div className="bg-white  lex justify-center items-center border-l-0 border border-black">
+                    <div className="bg-white  lex justify-center items-center border-b">
                         <img src={img3} alt="Fresh Flowers" className="w-full h-full object-cover " />
                     </div>
-                    <div className="bg-white  flex justify-center items-center border-l-0 border-t-0 border border-black">
+                    <div className="bg-white  flex justify-center items-center border-r">
                         <img src={img2} alt="Dried Flowers" className="w-full h-full object-cover " />
                     </div>
-                    <div className="bg-white p-6 flex flex-col items-center h-full border-l-0 border-t-0 border border-black relative">
+                    <div className="bg-white p-6 flex flex-col items-center h-full relative">
                         <h2 className="text-3xl font-semibold text-center absolute top-1/2 -translate-y-1/2 w-full">
                             Dried Flowers
                         </h2>
@@ -78,12 +78,12 @@ const Home = () => {
             </div>
 
             {/*Row2 */}
-            <div className="grid grid-cols-2 h-full">
+            <div className="grid grid-cols-2 h-full border-b">
                 {/* Left half */}
-                <div className="border-t-0 border border-gray-600"></div>
+                <div className="border-r"></div>
                 {/* Right half */}
                 <div className="grid grid-cols-2 grid-rows-2 h-full">
-                    <div className="bg-white p-6 flex flex-col items-center h-full border-l-0 border-t-0 border border-black relative">
+                    <div className="bg-white p-6 flex flex-col items-center h-full border-r border-b relative">
                         <h2 className="text-3xl font-semibold text-center absolute top-1/2 -translate-y-1/2 w-full">
                             Live Plants
                         </h2>
@@ -91,13 +91,13 @@ const Home = () => {
                             Shop now →
                         </button>
                     </div>
-                    <div className="bg-white  lex justify-center items-center border-l-0 border-t-0 border border-black">
+                    <div className="bg-white  lex justify-center items-center border-b">
                         <img src={img4} alt="Fresh Flowers" className="w-full h-full object-cover " />
                     </div>
-                    <div className="bg-white  flex justify-center items-center border-l-0 border-t-0 border border-black">
+                    <div className="bg-white  flex justify-center items-center border-r border-b">
                         <img src={img5} alt="Dried Flowers" className="w-full h-full object-cover " />
                     </div>
-                    <div className="bg-white p-6 flex flex-col items-center h-full border-l-0 border-t-0 border border-black relative">
+                    <div className="bg-white p-6 flex flex-col items-center h-full border-b relative">
                         <h2 className="text-3xl font-semibold text-center absolute top-1/2 -translate-y-1/2 w-full">
                             Aroma Candles
                         </h2>
@@ -105,7 +105,7 @@ const Home = () => {
                             ← Shop now
                         </button>
                     </div>
-                    <div className="bg-white p-6 flex flex-col items-center h-full border-l-0 border-t-0 border border-black relative">
+                    <div className="bg-white p-6 flex flex-col items-center h-full border-r relative">
                         <h2 className="text-3xl font-semibold text-center absolute top-1/2 -translate-y-1/2 w-full">
                             Freshners
                         </h2>
@@ -113,20 +113,20 @@ const Home = () => {
                             Shop now →
                         </button>
                     </div>
-                    <div className="bg-white  lex justify-center items-center border-l-0 border-t-0 border border-black">
+                    <div className="bg-white  lex justify-center items-center">
                         <img src={img6} alt="Fresh Flowers" className="w-full h-full object-cover " />
                     </div>
                 </div>
             </div>
 
             {/*Row3 */}
-            <div className="grid grid-cols-2 h-full">
+            <div className="grid grid-cols-2 h-full border-b">
                 {/* Right half */}
-                <div className=" p-13 pl-16 pt-16 border-t-0 border border-gray-600">
+                <div className=" p-13 pl-16 pt-16 border-r">
                     <h1 className="text-4xl font-semibold mb-6">About us</h1>
                 </div>
                 {/* Left half */}
-                <div className=" p-13 pl-16 pt-16  border-l-0 border-t-0 border border-gray-600">
+                <div className=" p-13 pl-16 pt-16">
                     <div className="max-w-lg ">
                         <div className="text-xs font-semibold tracking-widest text-gray-800 mb-6">
                             OUR STORY
@@ -156,14 +156,14 @@ const Home = () => {
             </div>
 
             {/*Row4 */}
-            <div className="grid grid-cols-2 h-full">
+            <div className="grid grid-cols-2 h-full border-b">
                 {/* Right half */}
-                <div className=" p-13 pl-16 pt-16 border-t-0 border border-gray-600">
+                <div className=" p-13 pl-16 pt-16 border-r">
                     <h1 className="text-4xl font-semibold mb-6">Why choose us ?</h1>
                 </div>
                 {/* Left half */}
                 <div className="grid grid-rows-4">
-                    <div className="p-13 pb-0 pl-16 pt-16  border-l-0 border-t-0 border border-gray-600">
+                    <div className="p-13 pb-0 pl-16 pt-16 border-b">
                         <div className="max-w-lg ">
                             <h1 className="text-4xl  text-black mb-8 leading-tight">
                                 Stylish bouquets by florists
@@ -177,7 +177,7 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="p-13 pb-0 pl-16 pt-16  border-l-0 border-t-0 border border-gray-600">
+                    <div className="p-13 pb-0 pl-16 pt-16 border-b">
                         <div className="max-w-lg ">
                             <h1 className="text-4xl  text-black mb-8 leading-tight">
                                 On-time delivery
@@ -190,7 +190,7 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="p-13 pb-0 pl-16 pt-16  border-l-0 border-t-0 border border-gray-600">
+                    <div className="p-13 pb-0 pl-16 pt-16 border-b">
                         <div className="max-w-lg ">
                             <h1 className="text-4xl  text-black mb-8 leading-tight">
                                 Safe payment
@@ -202,9 +202,9 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="p-13 pb-0 pl-16 pt-16  border-l-0 border-t-0 border border-gray-600">
+                    <div className="p-13 pb-0 pl-16 pt-16">
                         <div className="max-w-lg ">
-                            <h1 className="text-4xl  text-black mb-8 leading-tight">
+                            <h1 className="text-4xl text-black mb-8 leading-tight">
                                 Subscription by your needs
                             </h1>
                             <p className="text-sm leading-relaxed text-black mb-14">
@@ -221,10 +221,10 @@ const Home = () => {
             </div>
 
             {/*Row5 */}
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 border-b">
                 {/*contacts and address*/}
-                <div className="grid grid-cols-1">
-                    <div className=" border-t-0 border border-black p-15 pt-17">
+                <div className="grid grid-cols-1 border-r">
+                    <div className="p-15 pt-17">
                         <h2 className="text-4xl font-semibold mb-4">To Contact Us</h2>
                         <p className="text-md mb-3">We will call you back</p>
 
@@ -240,8 +240,8 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2">
-                        <div className="flex flex-col border-t-0 border border-black  h-full">
+                    <div className="grid grid-cols-2 border-t">
+                        <div className="flex flex-col border-r h-full">
                             <div className=" border-b flex items-center justify-center p-4">
                                 <h3 className="text-3xl font-semibold text-center">Phone</h3>
                             </div>
@@ -257,7 +257,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col border border-l-0 border-t-0 border-black h-70">
+                        <div className="flex flex-col h-70">
                             <div className="border-b border-black flex items-center justify-center p-4">
                                 <h3 className="text-3xl font-semibold text-center">Address</h3>
                             </div>
@@ -287,11 +287,11 @@ const Home = () => {
                         />
                     </div>
                     <div className="grid grid-cols-2">
-                        <div className="border border-black border-t-0 border-l-0 flex items-center justify-center">
+                        <div className="border-r flex items-center justify-center">
                             <h3 className="text-2xl font-semibold">Follow Us</h3>
                         </div>
                         {/*social media links*/}
-                        <div className="border border-black border-t-0 border-l-0 flex items-center justify-center gap-6">
+                        <div className="flex items-center justify-center gap-6">
                             <a href="#" className="hover:opacity-70 transition-opacity">
                                 <img src={instagramIco} className="w-5 h-5" />
                             </a>
@@ -315,13 +315,13 @@ const Home = () => {
             </div>
 
             {/*Row 6 */}
-            <div>
+            <div className="border-b">
                 {/*Title*/}
-                <div className="flex justify-center items-center h-42 border border-t-0 border-black">
+                <div className="flex justify-center items-center h-42 border-b">
                     <h1 className="text-4xl font-semibold">Our Service</h1>
                 </div>
                 {/*Details*/}
-                <div className="grid grid-cols-2 border border-black border-t-0">
+                <div className="grid grid-cols-2">
                     <img
                         src={img8}
                         className="w-full h-full bg-cover" />
@@ -339,7 +339,7 @@ const Home = () => {
             </div>
 
             {/* Row 7 */}
-            <div className="relative w-full h-160 border border-black border-t-0">
+            <div className="relative w-full h-160 border-b">
                 <img src={img9} alt="Flower Subscription" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/50 bg-opacity"></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center gap-3 pt-10">
@@ -356,14 +356,14 @@ const Home = () => {
             </div>
 
             {/* Row 8*/}
-            <div className="border border-black border-t-0 border-b-0 flex justify-center items-center flex-col pt-15 gap-3 pb-15">
+            <div className="flex justify-center items-center flex-col pt-15 gap-3 pb-15">
                 <div className="flex flex-col justify-center items-center">
                     <img src={googleImg} className="w-16" />
                     <p className="text-black text-xs font-">REVIEWS</p>
                 </div>
                 <h1 className="text-black text-4xl font-semibold">Our Clients say</h1>
                 <ReviewCarousel />
-                <button className="mt-10 px-6 py-3 border border-black bg-transparent text-black text-xs font-medium tracking-wider hover:bg-white hover:text-black transition-all duration-300">
+                <button className="mt-10 px-6 py-3 border border-black bg-transparent text-black text-xs font-medium tracking-wider hover:bg-black hover:text-white transition-all duration-300">
                     READ REVIEWS
                 </button>
             </div>

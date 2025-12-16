@@ -17,10 +17,10 @@ const Footer = () => {
 
     return (
         <footer className="bg-neutral-50 border border-black ">
-            <div className="max-w-7xl mx-auto border border-t-0 border-black">
+            <div className="max-w-7xl mx-auto border border-t-0 border-b-0 border-black">
                 <div className="grid grid-cols-1 md:grid-cols-4">
                     {/* Newsletter Section */}
-                    <div className="space-y-4 p-6 border border-t-0 border-l-0 border-black h-100">
+                    <div className="space-y-4 p-6 border border-b-0 border-t-0 border-l-0 border-black h-100">
                         <p className="text-black leading-relaxed">
                             Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or sharing your address
                         </p>
@@ -42,7 +42,7 @@ const Footer = () => {
                     </div>
 
                     {/* Contact Us Section */}
-                    <div className="space-y-4 border border-t-0 border-l-0 p-6">
+                    <div className="space-y-4 border-b-0 border border-t-0 border-l-0 p-6">
                         <h3 className="font-semibold text-gray-400 text-xl">
                             Contact Us
                         </h3>
@@ -79,7 +79,7 @@ const Footer = () => {
                     </div>
 
                     {/* Shop Section */}
-                    <div className="space-y-4 border border-t-0 border-l-0 p-6">
+                    <div className="space-y-4 border border-b-0 border-t-0 border-l-0 p-6">
                         <h3 className="text-xl font-semibold text-gray-400">
                             Shop
                         </h3>
