@@ -1,38 +1,55 @@
+import twitterIco from "../assets/icons/socials/twitter.png";
+import facebookIco from "../assets/icons/socials/facebook.png";
+import instagramIco from "../assets/icons/socials/instagram.png"
+import printerestIco from "../assets/icons/socials/printerest.png"
+import telegramIco from "../assets/icons/socials/telegram.png"
+import img1 from "../assets/images/about/1.png"
+
+
 const About = () => {
     return (
-        <div className="max-w-7xl border-black border border-b-0 border-t-0 mx-auto">
+        <div className="max-w-7xl border-black  border-r border-l mx-auto">
             {/* Section 1: Our Story */}
-            <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 border-b">
                 {/* Left - Text */}
-                <div className="bg-gray-50 p-12 md:p-16 flex flex-col justify-center">
-                    <div className="max-w-md">
-                        <p className="text-sm text-gray-600 mb-2">Our Story</p>
-                        <h1 className="text-4xl md:text-5xl font-light mb-6">Kyiv LuxeBouquets</h1>
-                        <p className="text-gray-600 leading-relaxed mb-8">
-                            We are a modern local floral studio, which specializes in the design and delivery of unique bouquets. We have the best florists who carefully select each look, our studio cooperates directly with farms for growing different flowers, so we always have fresh flowers, which are collected by our florists in exquisite bouquets. We follow world trends and do not stand still, we are always in search of new products and flowers. We guarantee that our bouquets will not only be beautiful but will also last more than a week.
+                <div className="bg-white flex flex-col justify-center items-center">
+                    <div className="text-center pt-36 pb-36">
+                        <h1 className="text-4xl md:text-5xl font-semibold mb-6">Our Story</h1>
+                        <h1 className="text-4xl md:text-5xl font-thin mb-6 italic">About</h1>
+                        <h1 className="text-4xl md:text-5xl font-semibold mb-6">Kyiv LuxeBouquets</h1>
+                        <p className="text-black leading-relaxed mb-12 text-lg max-w-lg">
+                            Discover Uniquely Crafted Bouquets and Gifts for Any
+                            Occasion: Spread Joy with Our Online Flower Delivery Service
                         </p>
                         {/* Social Icons */}
-                        <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                        <div className="flex gap-4 justify-center">
+                            <a href="#" className="w-12 h-12 border border-black rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                                <img src={instagramIco} className="w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                            <a href="#" className="w-12 h-12 border border-black rounded-full flex items-center justify-center hover:border-gray-500 transition-colors">
+                                <img src={printerestIco} className="w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                            <a href="#" className="w-12 h-12 border border-black rounded-full flex items-center justify-center hover:border-gray-500 transition-colors">
+                                <img src={facebookIco} className="w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                            <a href="#" className="w-12 h-12 border border-black rounded-full flex items-center justify-center hover:border-gray-500 transition-colors">
+                                <img src={twitterIco} className="w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
+                            <a href="#" className="w-12 h-12 border border-black rounded-full flex items-center justify-center hover:border-gray-500 transition-colors">
+                                <img src={telegramIco} className="w-5" />
                             </a>
                         </div>
                     </div>
                 </div>
 
                 {/* Right - Image */}
-                <div className="bg-gray-300 h-96 md:h-auto bg-cover bg-center"></div>
+                <div className="border-l">
+                    <img src={img1} className="w-full h-full object-cover " />
+                </div>
             </div>
 
             {/* Section 2: Our Founder's Passion */}
-            <div className="bg-white py-16 px-8 text-center">
+            <div className="bg-white py-16 px-8 text-center border-b">
                 <p className="text-sm text-gray-500 uppercase tracking-wide mb-3">Discover</p>
                 <h2 className="text-3xl md:text-4xl font-light mb-6">Our Founder's Passion</h2>
                 <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
