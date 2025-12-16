@@ -1,10 +1,5 @@
 import { useState } from "react";
-
-import twitterIco from "../../assets/icons/socials/twitter.png";
-import facebookIco from "../../assets/icons/socials/facebook.png";
-import instagramIco from "../../assets/icons/socials/instagram.png"
-import printerestIco from "../../assets/icons/socials/printerest.png"
-import telegramIco from "../../assets/icons/socials/telegram.png"
+import { icons } from "../../constants/icons";
 
 const Footer = () => {
     const [email, setEmail] = useState('');
@@ -17,10 +12,10 @@ const Footer = () => {
 
     return (
         <footer className="bg-neutral-50 border border-black ">
-            <div className="max-w-7xl mx-auto border border-t-0 border-b-0 border-black">
+            <div className="max-w-7xl mx-auto border-l border-r">
                 <div className="grid grid-cols-1 md:grid-cols-4">
                     {/* Newsletter Section */}
-                    <div className="space-y-4 p-6 border border-b-0 border-t-0 border-l-0 border-black h-100">
+                    <div className="space-y-4 p-6  h-100">
                         <p className="text-black leading-relaxed">
                             Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or sharing your address
                         </p>
@@ -60,19 +55,19 @@ const Footer = () => {
                             <p className="font-semibold text-gray-400 text-xl mb-3">Follow Us</p>
                             <div className="flex gap-3">
                                 <a href="#" className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
-                                    <img src={instagramIco} className="w-4" />
+                                    <img src={icons.instagram} className="w-4" />
                                 </a>
                                 <a href="#" className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
-                                    <img src={printerestIco} className="w-4" />
+                                    <img src={icons.printerest} className="w-4" />
                                 </a>
                                 <a href="#" className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
-                                    <img src={facebookIco} className="w-4" />
+                                    <img src={icons.facebook} className="w-4" />
                                 </a>
                                 <a href="#" className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
-                                    <img src={twitterIco} className="w-4" />
+                                    <img src={icons.twitter} className="w-4" />
                                 </a>
                                 <a href="#" className="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:border-gray-400 transition-colors">
-                                    <img src={telegramIco} className="w-4" />
+                                    <img src={icons.telegram} className="w-4" />
                                 </a>
                             </div>
                         </div>
@@ -87,7 +82,7 @@ const Footer = () => {
                             <li><a href="#" className="hover:text-gray-900">All Products</a></li>
                             <li><a href="#" className="hover:text-gray-900">Fresh Flowers</a></li>
                             <li><a href="#" className="hover:text-gray-900">Dried Flowers</a></li>
-                            <li><a href="#" className="hover:text-gray-900">Cndleglass</a></li>
+                            <li><a href="#" className="hover:text-gray-900">Live Plants</a></li>
                             <li><a href="#" className="hover:text-gray-900">Designer Vases</a></li>
                             <li><a href="#" className="hover:text-gray-900">Aroma Candles</a></li>
                             <li><a href="#" className="hover:text-gray-900">Freshener Diffuser</a></li>

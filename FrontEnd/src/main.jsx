@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import About from "./pages/AboutUs.jsx";
 import Subscription from "./pages/Subscription.jsx";
+import Category from "./pages/Category.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "subscription", element: <Subscription /> },
+      { path: "category", element: <Category /> },
     ],
   },
 ]);
