@@ -4,37 +4,37 @@ from orms import ProductOrm, CustomerOrm, CartItemOrm
 from models.cart import CartItemOut
 
 async def get_all_display(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category))
     products = result.all()
     return products
 
 async def get_all_fresh_flowers(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "fresh"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "fresh"))
     products = result.all()
     return products
 
 async def get_all_dried_flowers(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "dried"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "dried"))
     products = result.all()
     return products
 
 async def get_all_live_plants(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "live"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "live"))
     products = result.all()
     return products
 
 async def get_all_vases(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "vase"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "vase"))
     products = result.all()
     return products
 
 async def get_all_candles(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "candle"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "candle"))
     products = result.all()
     return products
 
 async def get_all_fresheners(db: AsyncSession):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).where(ProductOrm.category == "freshener"))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name,ProductOrm.category).where(ProductOrm.category == "freshener"))
     products = result.all()
     return products   
 

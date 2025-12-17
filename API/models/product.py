@@ -15,6 +15,7 @@ class Product(BaseModel):
 
 class ProductDisplay(BaseModel):
     id: int
+    category: str
     name: str
     price: float
     img: Optional[str]

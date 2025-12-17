@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from routers.auth_router import router as arouter 
 from routers.product_router import router as prouter 
 from routers.subscription_router import router as srouter 
@@ -6,8 +7,9 @@ from routers.cart_router import router as crouter
 from routers.gift_card_router import router as grouter
 from routers.order_router import router as orouter
 from fastapi.middleware.cors import CORSMiddleware
+from lifespan import lifespan
 
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -16,7 +18,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 app.include_router(router=arouter, prefix="/auth", tags=["Auth"])
 app.include_router(router=prouter, prefix="/product", tags=["Product"])
