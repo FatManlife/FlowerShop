@@ -28,7 +28,6 @@ const Shop = () => {
             </div>
         );
 
-    console.log(data);
     return (
         <div className="border-r border-l max-w-7xl mx-auto">
             <div className="grid grid-cols-2 ">
@@ -57,10 +56,7 @@ const Shop = () => {
                                     index >= data.length - 2 ? "border-b-0" : ""
                                 }`}
                             >
-                                <ProductCard
-                                    product={product}
-                                    nr={data.length}
-                                />
+                                <ProductCard product={product} />
                             </li>
                         ))}
                     </ul>

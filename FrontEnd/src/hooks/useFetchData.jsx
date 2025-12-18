@@ -12,7 +12,6 @@ export const useFetchData = (url) => {
             setLoading(true);
             try {
                 const response = await api.get(url);
-                console.log(response);
                 setData(response.data);
             } catch (e) {
                 setError(e);

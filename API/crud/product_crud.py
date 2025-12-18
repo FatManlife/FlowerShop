@@ -44,7 +44,7 @@ async def get_details(db: AsyncSession, id: int):
     return product
 
 async def get_recommendations(db: AsyncSession, nr: int):
-    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name).order_by(func.random()).limit(nr))
+    result = await db.execute(select(ProductOrm.id,ProductOrm.price,ProductOrm.img,ProductOrm.name, ProductOrm.category).order_by(func.random()).limit(nr))
     recommendations = result.all()
     return recommendations
 
