@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import AuthModal from "../modal/AuthModal";
+import ShoppingCartSidebar from "../modal/Menu";
+import { useAuth } from "../../services/AuthContext";
 
 function Navbar() {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const { authId, setToken } = useAuth();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    const handleSignOut = () => {
+        setToken(null);
+        setIsModalOpen(true);
+    };
 
     return (
         <nav className="bg-white border-b border-black">
@@ -35,7 +44,7 @@ function Navbar() {
                     {/* Right side - Sign in and Cart */}
                     <div className="flex h-full">
                         {/* Sign in */}
-                        {!isModalOpen && (
+                        {!isModalOpen && !authId && (
                             <button
                                 onClick={() => setIsModalOpen(true)}
                                 className="px-8 h-full flex items-center border-l border-black text-gray-900 hover:bg-gray-50 transition-colors"
@@ -43,8 +52,28 @@ function Navbar() {
                                 Sign in
                             </button>
                         )}
+
+                        {!isModalOpen && authId && (
+                            <button
+                                onClick={handleSignOut}
+                                className="px-8 h-full flex items-center border-l border-black text-gray-900 hover:bg-gray-50 transition-colors"
+                            >
+                                Log Out
+                            </button>
+                        )}
                         {/* Cart */}
-                        <button className="px-8 h-full flex items-center border-l border-r border-black text-gray-900 hover:bg-gray-50 transition-colors">
+
+                        {isCartOpen && (
+                            <ShoppingCartSidebar
+                                isOpen={isCartOpen}
+                                setIsOpen={() => setIsCartOpen(!isCartOpen)}
+                            />
+                        )}
+
+                        <button
+                            onClick={() => setIsCartOpen(true)}
+                            className="px-8 h-full flex items-center border-l border-r border-black text-gray-900 hover:bg-gray-50 transition-colors"
+                        >
                             Cart
                         </button>
                     </div>

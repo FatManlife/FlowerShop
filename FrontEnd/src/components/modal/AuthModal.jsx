@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { socialIcons, icons } from "../../constants/icons";
 import api from "../../api/api";
-import { useToken } from "../../hooks/useToken";
+import { useAuth } from "../../services/AuthContext";
 
 const AuthModal = ({ isOpen, onClose }) => {
     const [password, setPassword] = useState("");
     const [step, setStep] = useState("phone");
     const [phoneNumber, setPhoneNumber] = useState("");
-    const [token, setToken] = useToken();
+    const { token, setToken } = useAuth();
 
     const handleContinue = async () => {
         try {
@@ -25,6 +25,9 @@ const AuthModal = ({ isOpen, onClose }) => {
                 password: password,
             });
             setToken(res.data.access_token);
+            setPassword("");
+            setPhoneNumber("");
+            setStep("phone");
             onClose();
         } catch (e) {
             console.log(e);
@@ -220,7 +223,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                             onClick={handleLogin}
                             className="w-full bg-black text-white py-3 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors mb-4"
                         >
-                            Join Us
+                            Log in
                         </button>
                     </>
                 )}

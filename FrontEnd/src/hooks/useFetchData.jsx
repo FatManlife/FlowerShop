@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
 
-export const useFetchData = (url) => {
+export const useFetchData = (url, refreshKey) => {
     const [data, setData] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export const useFetchData = (url) => {
         fetchdata();
 
         return () => controller.abort();
-    }, [url]);
+    }, [url, refreshKey]);
 
     return { data, error, loading };
 };

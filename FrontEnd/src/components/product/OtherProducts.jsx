@@ -20,8 +20,11 @@ const OtherProducts = () => {
     return (
         <div className="grid grid-cols-4">
             {data.map((product, index) => (
-                <div className={`${index < data.length - 1 ? "border-r" : ""}`}>
-                    <ProductCard product={product} key={product.id} />
+                <div
+                    className={`${index < data.length - 1 ? "border-r" : ""}`}
+                    key={product.id}
+                >
+                    <ProductCard product={product} />
                 </div>
             ))}
         </div>

@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useFetchData } from "../hooks/useFetchData";
 import { useState } from "react";
+import { useAuth } from "../services/AuthContext";
 import Counter from "../components/Counter";
 import ProductCarousel from "../components/product/ProductCarousel";
 import OtherProducts from "../components/product/OtherProducts";
+import api from "../api/api";
 
 const Product = () => {
     const params = useParams();
@@ -11,6 +13,20 @@ const Product = () => {
     const { data, error, loading } = useFetchData(url);
 
     const [selectedOption, setSelectedOption] = useState("onetime");
+    const [ctr, setCtr] = useState(0);
+    const { authId } = useAuth();
+
+    const handleAdd = async () => {
+        try {
+            if (ctr <= 0) return;
+            await api.post(`/cart/${authId}/item`, {
+                product_id: data.id,
+                quantity: ctr,
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     if (loading)
         return (
@@ -58,7 +74,7 @@ const Product = () => {
                     {/* Quantity */}
                     <div className="mb-8 flex items-center gap-3">
                         <p className="text-md font-medium ">Quantity</p>
-                        <Counter />
+                        <Counter val={ctr} onChange={setCtr} />
                     </div>
 
                     {/* Vase Options */}
@@ -118,7 +134,10 @@ const Product = () => {
                     </div>
 
                     {/* Add to Basket Button */}
-                    <button className="w-full bg-black text-white py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors">
+                    <button
+                        onClick={handleAdd}
+                        className="w-full bg-black text-white py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors"
+                    >
                         Add to Basket
                     </button>
                 </div>
