@@ -1,4 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
 from orms import CustomerOrm
 
 async def create(db: AsyncSession, auth_id: int):
