@@ -1,3 +1,5 @@
+import sub1 from "../assets/images/subscription/1.png";
+import sub2 from "../assets/images/subscription/2.png";
 import shop1 from "../assets/images/shop/1.png";
 import about1 from "../assets/images/about/1.png";
 import about2 from "../assets/images/about/2.png";
@@ -39,4 +41,9 @@ export const socialImgs = {
 
 export const shopImg = {
     img1: shop1,
+};
+
+export const subscriptionImgs = {
+    img1: sub1,
+    img2: sub2,
 };

@@ -1,6 +1,6 @@
 from orms import Base
 from core.database import engine, AsyncSessionLocal 
-from seeding import seed_products
+from seeding import seed_products, seed_subscriptions
 from contextlib import asynccontextmanager 
 from fastapi import FastAPI
 
@@ -11,6 +11,7 @@ async def lifespan(app: FastAPI):
 
     async with AsyncSessionLocal() as session:
         await seed_products(session)
+        await seed_subscriptions(session) 
 
     yield 
 
