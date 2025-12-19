@@ -32,3 +32,11 @@ async def login(db: AsyncSession, auth: AuthIn):
     
     token = sAuth.create_access_token(user.id) 
     return {"access_token": token, "token_type": "bearer"}
+
+async def verify_phone(db: AsyncSession, phone: str):
+    user = await auth_crud.get_auth_by_phone(db,phone)
+
+    if not user:
+        return {"available" : True} 
+
+    return {"available": False}
