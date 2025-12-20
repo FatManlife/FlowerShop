@@ -12,6 +12,16 @@ async def get_gift(db: AsyncSession, gift: str):
 
     return gift_card 
 
+async def get_gift_by_id(db: AsyncSession, gift_id: int):
+    data = await db.execute(select(GiftCardOrm).where(GiftCardOrm.id == gift_id))
+
+    gift_card = data.scalars().first() 
+
+    if not gift_card:
+        raise ValueError("Gift card doesn't exist")
+
+    return gift_card 
+
 async def redeem_gift(db: AsyncSession, gift_id: int, customer_id:int):
     if not await get_redeemed(db, gift_id, customer_id):
         return 
@@ -23,11 +33,15 @@ async def redeem_gift(db: AsyncSession, gift_id: int, customer_id:int):
     await db.refresh(customer_gift)
 
 async def get_redeemed(db: AsyncSession, gift_id: int, customer_id: int):
-    data = await db.execute(select(CustomerGiftCardOrm).where(CustomerGiftCardOrm.customer_id == customer_id and CustomerGiftCardOrm.gift_card_id == gift_id)) 
+    data = await db.execute(
+    select(CustomerGiftCardOrm)
+    .where(CustomerGiftCardOrm.customer_id == customer_id)
+    .where(CustomerGiftCardOrm.gift_card_id == gift_id)
+    )
 
     redeemed = data.scalars().first()
 
     if redeemed:
         return False
 
-    return True 
+    return await get_gift_by_id(db, gift_id) 

@@ -6,6 +6,6 @@ class ShippingIn(BaseModel):
     price: float
     phone: str
     delivery_date: date
-    delivery_time: time 
+    delivery_time: str 
     apartament_nr: str
     street: str

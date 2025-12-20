@@ -28,3 +28,10 @@ async def delete_cart_item(db: AsyncSession, product_id: int, cart_id: int):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) 
 
+async def delete_cart_items(db: AsyncSession,cart_id: int):
+    try:
+        return await crud.delete_items(db,cart_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e)) 
+
+

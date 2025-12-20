@@ -21,3 +21,7 @@ async def add_cart_item(cart_id: int, item: CartItem, db:AsyncSession = Depends(
 @router.delete("/{cart_id}/item/{product_id}")
 async def delete_cart_item(cart_id: int, product_id: int, db:AsyncSession = Depends(get_db)):
     return await service.delete_cart_item(db,product_id,cart_id) 
+
+@router.delete("/{cart_id}/item")
+async def delete_cart_items(cart_id: int, db:AsyncSession = Depends(get_db)):
+    return await service.delete_cart_items(db,cart_id) 

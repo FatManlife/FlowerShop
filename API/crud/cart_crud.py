@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from models.cart import CartItem
 from orms import CartOrm, CartItemOrm
-from sqlalchemy import select
+from sqlalchemy import select, delete
 from orms import ProductOrm
 
 async def create(db: AsyncSession, customer_id: int):
@@ -67,3 +67,9 @@ async def get_cart_items(db:AsyncSession, cart_id : int):
     )
 
     return result.fetchall()
+
+async def delete_items(db:AsyncSession, cart_id: int):
+    await db.execute(delete(CartItemOrm).where(CartItemOrm.cart_id == cart_id))
+    await db.commit()
+
+    return {"message": "items delete successfully"}

@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from orms import ProductOrm  
-from orms import SubscriptionOrm
+from orms import ProductOrm, GiftCardOrm,SubscriptionOrm 
+import random
 
 categories = ["candle", "dried", "freshener", "fresh", "live", "vase"]
 
@@ -45,5 +45,22 @@ async def seed_subscriptions(session: AsyncSession):
             img=sub.get("img")
         )
         session.add(subscription)
+
+    await session.commit()
+
+
+async def seed_gift_cards(session: AsyncSession):
+    result = await session.execute(select(GiftCardOrm))
+    existing = result.scalars().first()
+    if existing:
+        return
+
+    for i in range(1, 11):
+        gift_card = GiftCardOrm(
+            name=f"Gift Card {i}",
+            discount=round(random.uniform(5, 50), 2),  
+            status=random.choice([True, False])        
+        )
+        session.add(gift_card)
 
     await session.commit()

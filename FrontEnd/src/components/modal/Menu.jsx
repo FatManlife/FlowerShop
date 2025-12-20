@@ -3,6 +3,7 @@ import { icons } from "../../constants/icons";
 import { useAuth } from "../../services/AuthContext";
 import { useFetchData } from "../../hooks/useFetchData";
 import CartItemCard from "../card/CartItemCard";
+import { Link } from "react-router-dom";
 
 const ShoppingCartSidebar = ({ isOpen, setIsOpen }) => {
     const { authId } = useAuth();
@@ -85,9 +86,14 @@ const ShoppingCartSidebar = ({ isOpen, setIsOpen }) => {
                         </p>
 
                         {/* Checkout Button */}
-                        <button className="w-full bg-black text-white py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors">
-                            Check Out
-                        </button>
+                        <Link
+                            to={"/checkout"}
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            <button className="w-full bg-black text-white py-4 text-sm font-medium uppercase tracking-wide hover:bg-gray-800 transition-colors">
+                                Check Out
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

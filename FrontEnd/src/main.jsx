@@ -8,6 +8,7 @@ import About from "./pages/AboutUs.jsx";
 import Subscription from "./pages/Subscription.jsx";
 import Shop from "./pages/Shop.jsx";
 import Product from "./pages/Product.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
             { path: "subscription", element: <Subscription /> },
             { path: "shop/:category?", element: <Shop /> },
             { path: "product/:id", element: <Product /> },
+            { path: "checkout", element: <Checkout /> },
         ],
     },
 ]);

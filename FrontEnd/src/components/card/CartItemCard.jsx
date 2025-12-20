@@ -3,9 +3,9 @@ import api from "../../api/api";
 const CartItemCard = ({ item, refresh }) => {
     const handleRemove = async () => {
         try {
-            // await api.delete(`cart/${item.cart_id}/item/${item.product_id}`);
+            await api.delete(`cart/${item.cart_id}/item/${item.product_id}`);
             console.log("Removing item:", item.product_id);
-            // refresh();
+            refresh();
         } catch (e) {
             console.log(e);
         }

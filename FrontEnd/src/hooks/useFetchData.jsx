@@ -5,22 +5,27 @@ export const useFetchData = (url, refreshKey) => {
     const [data, setData] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
-    const controller = new AbortController();
 
     useEffect(() => {
-        const fetchdata = async () => {
+        if (!url) return;
+
+        const controller = new AbortController();
+
+        const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await api.get(url);
+                const response = await api.get(url, {
+                    signal: controller.signal,
+                });
                 setData(response.data);
             } catch (e) {
-                setError(e);
+                if (e.name !== "CanceledError") setError(e);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchdata();
+        fetchData();
 
         return () => controller.abort();
     }, [url, refreshKey]);
